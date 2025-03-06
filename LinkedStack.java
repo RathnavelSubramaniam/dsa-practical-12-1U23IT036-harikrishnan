@@ -9,29 +9,43 @@ public class LinkedStack {
         }
     }
     Node top;
-    LinkedStack() 
+LinkedStack() 
     { 
         this.top = null; 
-        
+
     }
     public boolean isEmpty()
     {
-        // TYPE YOUR CODE HERE
+        if(top==null)
+        return true;
+        else
+        return false;
     }
     public void push(int data) 
     {
-         // TYPE YOUR CODE HERE    
-}
+         Node newNode = new Node(data);
+         newNode.next = top;
+         top = newNode;
+    }
     public int pop() 
     {
-        // TYPE YOUR CODE HERE
+        int data=-1;
+        if (isEmpty()) {
+        System.out.print("\n STACK IS UNDERFLOW");
+        }
+        else
+        {
+           data=top.data;
+           top = top.next;
+        }
+        return data;
     }
      public static void main(String[] args) {
         LinkedStack stack = new LinkedStack();
         Scanner scanner = new Scanner(System.in);
         Scanner sc = new Scanner(System.in);
         int ch,data, c;
-        System.out.println("ENTER INTEGERS TO CREATE NODES (ENTER A NON-INTEGER TO EXIT):");
+System.out.println("ENTER INTEGERS TO CREATE NODES (ENTER A NON-INTEGER TO EXIT):");
         while (scanner.hasNext()) {
         if(scanner.hasNextInt())
           {
@@ -83,4 +97,3 @@ public void displayStack() {
     System.out.println("null");
 }
 }
-
